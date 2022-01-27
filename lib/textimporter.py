@@ -214,11 +214,4 @@ class TextImporter():
 
 
 if __name__ == '__main__':
-    src_file = '../data/gutenberg/pg42324.txt'
-    # ohco_pats = [('chap', r'^(?:INTRODUCTION|PREFACE|LETTER|CHAPTER)\.?\b', 'm')]
-    ohco_pats = [('chap', r'^(?:LETTER|CHAPTER)\b', 'm')]
-    clip_pats = [r'START', r'END']
-    test= TextImporter(src_file=src_file, ohco_pats=ohco_pats, clip_pats=clip_pats)
-    test.import_source().parse_tokens()
-    print(test.TOKENS.head())
-    print(test.gather_tokens(1))
+    pass
