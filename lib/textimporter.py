@@ -21,7 +21,7 @@ class TextImporter():
     join_pat:str = r'\n'
         
     # We assume all OHCOs have sentences and tokens
-    ohco_pats:[tuple] = [
+    ohco_pats:[] = [
         ('para', r"\n\n", 'd'),
         ('sent', r"[.?!;:]+", 'd'),
         ('token', r"[\s',-]+", 'd')
@@ -59,8 +59,14 @@ class TextImporter():
         end_pat = self.clip_pats[1]
         start = self.LINES.line_str.str.contains(start_pat, regex=True)
         end = self.LINES.line_str.str.contains(end_pat, regex=True)
-        start_line_num = self.LINES.loc[start].index[0]
-        end_line_num = self.LINES.loc[end].index[0]
+        try:
+            start_line_num = self.LINES.loc[start].index[0]
+        except IndexError:
+            raise("Clip start pattern not found.")            
+        try:
+            end_line_num = self.LINES.loc[end].index[0]
+        except IndexError:
+            raise("Clip end pattern not found.")
         self.LINES = self.LINES.loc[start_line_num + 1 : end_line_num - 2]
         self.src_clipped == True
         
@@ -78,6 +84,7 @@ class TextImporter():
                 else:
                      print(f"Invalid parse option: {parse_type}.")
             self.TOKENS['term_str'] = self.TOKENS.token_str.str.replace(r'[\W_]+', '', regex=True).str.lower()
+            self.OHCO = list(self.TOKENS.index.names)
             return self
         else:
             raise("Source not imported. Please run .import_source()")
@@ -207,7 +214,7 @@ class TextImporter():
         if level > max_level:
             print(f"Level {level} too high. Try between 0 and {max_level}")
         else:
-            level_name = self.OHCO[level]
+            level_name = self.OHCO[level].split('_')[0]
             idx = self.TOKENS.index.names[:level+1]
             return self.TOKENS.groupby(idx).term_str.apply(lambda x: x.str.cat(sep=' '))\
                 .to_frame(f'{level_name}_str')
