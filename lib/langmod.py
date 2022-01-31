@@ -3,6 +3,9 @@ import numpy as np
 
 class NgramCounter():
     """A class to generate tables of ngram tokens and types from a list of sentences."""
+    
+    unk_sign = '<UNK>'
+    sent_pad_signs = ['<s>','</s>']
         
     def __init__(self, sents:[], vocab:[], n:int=3):
         self.sents = sents # Expected to be normalized
@@ -16,15 +19,15 @@ class NgramCounter():
         self.S = pd.DataFrame(dict(sent_str=self.sents))
             
         # Pad sentences 
-        pad = '<s> ' *  (self.n - 1)
-        self.I = (pad + self.S.sent_str + ' </s>')\
+        pad = (self.sent_pad_signs[0] + ' ') *  (self.n - 1)
+        self.I = (pad + self.S.sent_str + ' ' + self.sent_pad_signs[1])\
             .str.split(expand=True).stack().to_frame('w0')
         
         # Set index names
         self.I.index.names = ['sent_num', 'token_num']
         
         # Remove OOV terms
-        self.I.loc[~self.I.w0.isin(self.vocab + ['<s>','</s>']), 'w0'] = '<UNK>'
+        self.I.loc[~self.I.w0.isin(self.vocab + self.sent_pad_signs), 'w0'] = self.unk_sign
 
         # Get sentence lengths (these will include pads)
         self.S['len'] = self.I.groupby('sent_num').w0.count()
@@ -37,13 +40,14 @@ class NgramCounter():
         self.NG = []
         for i in range(self.n):
             self.NG.append(self.I.iloc[:, :i+1].copy())
-
+           
             # Remove spurious rows
             self.NG[i] = self.NG[i].dropna()
+            
             # This causes problems below ...
-            #self.NG[i] = self.NG[i].query(f"w{i} != '<s>'")
+#             self.NG[i] = self.NG[i].query(f"w{i} != '<s>'")
                     
-        # Generate raw ngram counts
+        # Generate raw ngram counts and MLEs
         self.LM = []
         for i in range(self.n):
             self.LM.append(self.NG[i].value_counts().to_frame('n'))
@@ -53,7 +57,7 @@ class NgramCounter():
         # Hack to remove single value tuple from unigram table ...
         self.LM[0].index = [i[0] for i in self.LM[0].index]
         self.LM[0].index.name = 'w0'
-        
+                
         
 class NgramLanguageModel():
     """A class to create ngram language models."""
