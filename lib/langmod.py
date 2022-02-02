@@ -71,45 +71,44 @@ class NgramLanguageModel():
         self.NG = ngc.NG
         self.n = ngc.n
         self.widx = ngc.widx
-        
+
     def apply_smoothing(self):
         """Applies simple smoothing to ngram type counts to estimate the models."""
         
         # Z1 and Z2 will hold info about unseen ngrams
         self.Z1 = [None for _ in range(self.n)] # Unseen N grams, but seen N-1 grams
-        self.Z2 = [None for _ in range(self.n)] # Unsess N-1 grams too
+        self.Z2 = [None for _ in range(self.n)] # Unseen N-1 grams too
         
-        # The number of unigram tokens
+        # The base vocab size (same as number of unigram types)
         V = len(self.LM[0]) # Inlcides <s> and </s>
         
-        # To store perplexity information
-        self.PPmax = [None for _ in range(self.n)]
-        
-        for i in range(self.n):      
-            
-            # Joint probabilities of ngram terms
-            B = V**(i+1)
-            self.LM[i]['p'] = (self.LM[i].n + self.k) / (self.LM[i].n.sum() + B * self.k)
+        # The number of ngram types
+        B = [V**(i+1) for i in range(self.n)]
+
+        # Handle unigram case (no need for smoothing)
+        self.LM[0]['p'] = self.LM[0].n / self.LM[0].n.sum()
+        self.LM[0]['log_p'] = np.log2(self.LM[0].p)
+
+        # Handle higher order ngrams
+        for i in range(1, self.n):      
+
+            self.LM[i]['p'] = (self.LM[i].n + self.k) / (self.LM[i-1].n + B[i-1] * self.k)
             self.LM[i]['log_p'] = np.log2(self.LM[i].p)
-            self.PPmax[i] = B * self.k
-                
-            if i > 0:
 
-                # Handle unseen data
-                self.Z1[i] = np.log2(self.k / (self.LM[i-1].n + B * self.k))
-                self.Z2[i] = np.log2(self.k / B * self.k)
+            # Unseen N grams, but seen N-1 grams
+            self.Z1[i] = np.log2(self.k / (self.LM[i-1].n + B[i-1] * self.k))
+
+            # Unsess N-1 grams too
+            self.Z2[i] = np.log2(self.k / B[i-1] * self.k)
                 
-                # Conditional probabilities of terms
-                self.LM[i]['cp'] = (self.LM[i].p / self.LM[i-1].p)
-                self.LM[i]['log_cp'] = np.log2(self.LM[i].cp)
-                
+            # Tidy up the index
             self.LM[i].sort_index(inplace=True)
-
+        
     def predict(self, test:NgramCounter):
         """Predicts test sentences with estimated models."""
         self.T = test
         self.PP = []
-        p_key = 'log_cp'
+        p_key = 'log_p'
         for i in range(self.n):
             ng = i + 1
             if i == 0:
@@ -144,7 +143,7 @@ class NgramLanguageModel():
             ng = tuple(words[-i:])
 
             # Get next word
-            words.append(LM[i].loc[ng].sample(weights='cp').index.values[0])
+            words.append(LM[i].loc[ng].sample(weights='p').index.values[0])
 
             # Terminate when end-of-sentence marker found
             if words[-1] == '</s>':
