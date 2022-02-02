@@ -40,13 +40,10 @@ class NgramCounter():
         self.NG = []
         for i in range(self.n):
             self.NG.append(self.I.iloc[:, :i+1].copy())
-           
-            # Remove spurious rows
-            self.NG[i] = self.NG[i].dropna()
-            
-            # This causes problems below ...
-#             self.NG[i] = self.NG[i].query(f"w{i} != '<s>'")
-                    
+
+        # Remove spurious rows
+        self.NG[i] = self.NG[i].dropna()
+                                
         # Generate raw ngram counts and MLEs
         self.LM = []
         for i in range(self.n):
