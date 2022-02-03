@@ -90,7 +90,7 @@ class NgramLanguageModel():
         for i in range(1, self.n):     
             
             # MLE
-            self.LM[i]['mle'] = self.LM[i].n / self.LM[i-1].n
+            self.LM[i]['mle2'] = self.LM[i].n / self.LM[i-1].n
 
             # Emplopy smoothing formula
             self.LM[i]['p'] = (self.LM[i].n + self.k) / (self.LM[i-1].n + B[i-1] * self.k)
