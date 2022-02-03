@@ -87,8 +87,12 @@ class NgramLanguageModel():
         self.LM[0]['log_p'] = np.log2(self.LM[0].p)
 
         # Handle higher order ngrams
-        for i in range(1, self.n):      
+        for i in range(1, self.n):     
+            
+            # MLE
+            self.LM[i]['mle'] = self.LM[i].n / self.LM[i-1].n
 
+            # Emplopy smoothing formula
             self.LM[i]['p'] = (self.LM[i].n + self.k) / (self.LM[i-1].n + B[i-1] * self.k)
             self.LM[i]['log_p'] = np.log2(self.LM[i].p)
 
@@ -140,7 +144,7 @@ class NgramLanguageModel():
             ng = tuple(words[-i:])
 
             # Get next word
-            words.append(LM[i].loc[ng].sample(weights='p').index.values[0])
+            words.append(LM[i].loc[ng].sample(weights='mle').index.values[0])
 
             # Terminate when end-of-sentence marker found
             if words[-1] == '</s>':
