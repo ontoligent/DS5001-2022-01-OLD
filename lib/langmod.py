@@ -108,8 +108,6 @@ class NgramLanguageModel():
     def predict(self, test:NgramCounter):
         """Predicts test sentences with estimated models."""
         self.T = test
-        self.PP = []
-        p_key = 'log_p'
         for i in range(self.n):
             ng = i + 1
             if i == 0:
@@ -118,9 +116,9 @@ class NgramLanguageModel():
                     .groupby('sent_num').log_p.sum()
             else:
                 self.T.S[f'ng_{ng}_ll'] = self.T.NG[i]\
-                    .join(self.LM[i][p_key], on=self.widx[:ng])\
+                    .join(self.LM[i].log_p, on=self.widx[:ng])\
                     .fillna(self.Z1[i]).fillna(self.Z2[i])\
-                    .groupby('sent_num')[p_key].sum()
+                    .groupby('sent_num').log_p.sum()
                 
             self.T.S[f'pp{ng}'] = 2**( -self.T.S[f'ng_{ng}_ll'] / self.T.S['len'])
             
