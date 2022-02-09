@@ -1,10 +1,9 @@
 # System related
+**/.DS_Store
 **/_MACOSX/*
 **/*.ipynb_checkpoints
 **/._*
 **/__pycache__
-**/.DS_Store
-**/.DS_store
 
 # To add back as needed
 data/airbnb
