@@ -5,7 +5,8 @@
 **/._*
 **/__pycache__
 
-# To add back as needed
+# Content related
+# Add back as needed
 data/airbnb
 data/salex
 data/salex-novels
