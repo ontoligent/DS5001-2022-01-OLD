@@ -199,7 +199,7 @@ class TextParser():
         return self
 
     def annotate_vocab(self):
-        # TODO: Add these after the lesson
+        """This should be done at the corpus level."""
         # Stopwords
         # Max POS
         # POS variability
