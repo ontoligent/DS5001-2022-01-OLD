@@ -1,5 +1,3 @@
-from struct import pack
-from tabnanny import verbose
 import pandas as pd
 import numpy as np
 import nltk
