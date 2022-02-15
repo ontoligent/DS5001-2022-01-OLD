@@ -27,9 +27,9 @@ class TextParser():
     src_col_suffix:str ='_str'
 
     join_pat:str = r'\n'
-    strip_hyphens = False
-    strip_whitespace = False
-    verbose = False
+    strip_hyphens:bool = False
+    strip_whitespace:bool = False
+    verbose:bool = False
         
     # We assume all OHCOs have sentences and tokens
     # and that there are terminal in the list.
@@ -122,7 +122,7 @@ class TextParser():
                     src_div_name = self.ohco_names[i - 1] 
                 src_col = f"{src_div_name}{self.src_col_suffix}"
                 dst_col = f"{div_name}{self.src_col_suffix}"
-                
+
                 # By Milestone
                 if parse_type == 'm':
                     if self.verbose: print(f"by milestone {div_pat}")
@@ -134,6 +134,11 @@ class TextParser():
                     self.TOKENS[div_name] = self.TOKENS[div_name].astype('int')
                     self.TOKENS = self.TOKENS.groupby(self.ohco_names[:i+1])[src_col]\
                         .apply(lambda x: '\n'.join(x)).to_frame(dst_col)
+
+                    # print(self.TOKENS[dst_col].str.count(r'\n\n'))
+                    print(src_col, dst_col)
+                    print(self.TOKENS.columns)
+
 
                 # By Delimitter
                 elif parse_type == 'd':
@@ -169,11 +174,14 @@ class TextParser():
 
                 # After creating the current OHCO level
                 self.TOKENS.index.names = self.OHCO[:i+1]
-                self.TOKENS[dst_col] = self.TOKENS[dst_col].str.strip()
-                self.TOKENS[dst_col] = self.TOKENS[dst_col].str.replace(self.join_pat, ' ', regex=True)
-                self.TOKENS = self.TOKENS[~self.TOKENS[dst_col].str.contains(r'^\s*$', regex=True)]
 
             # After iterating through the OHCO
+
+            # Not sure if needed anymore
+            # self.TOKENS[dst_col] = self.TOKENS[dst_col].str.strip()
+            # self.TOKENS[dst_col] = self.TOKENS[dst_col].str.replace(self.join_pat, ' ', regex=True)
+            # self.TOKENS = self.TOKENS[~self.TOKENS[dst_col].str.contains(r'^\s*$', regex=True)]
+
             if not self.use_nltk:
                 self.TOKENS['term_str'] = self.TOKENS.token_str.str.replace(r'[\W_]+', '', regex=True).str.lower()  
             else:
