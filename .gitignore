@@ -5,6 +5,9 @@
 **/._*
 **/__pycache__
 
+# Block file name
+**/*_HIDE*
+
 # Content related
 # Add back as needed
 data/airbnb
@@ -13,7 +16,6 @@ data/salex-novels
 data/winereviews
 data/newzy
 data/novels
-M05*
 M06*
 M07*
 M08*
