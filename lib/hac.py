@@ -1,6 +1,6 @@
 import scipy.cluster.hierarchy as sch
-from scipy.spatial.distance import pdist, squareform
-from sklearn.cluster import AgglomerativeClustering
+from scipy.spatial.distance import pdist #, squareform
+# from sklearn.cluster import AgglomerativeClustering
 from sklearn.preprocessing import normalize
 import matplotlib.pyplot as plt            
 
@@ -12,8 +12,9 @@ class HAC:
     w:int = 10
     labelsize:int = 14
     orientation:str = 'left'
-    sim_metric:str = 'cosine'
+    sim_metric:str = 'cosine' # The distance metric to use. The distance function can be ‘braycurtis’, ‘canberra’, ‘chebyshev’, ‘cityblock’, ‘correlation’, ‘cosine’, ‘dice’, ‘euclidean’, ‘hamming’, ‘jaccard’, ‘jensenshannon’, ‘kulsinski’, ‘kulczynski1’, ‘mahalanobis’, ‘matching’, ‘minkowski’, ‘rogerstanimoto’, ‘russellrao’, ‘seuclidean’, ‘sokalmichener’, ‘sokalsneath’, ‘sqeuclidean’, ‘yule’.
     tree_method:str = 'ward'
+    norm:str = 'l2' # l1, l2, max
     
     def __init__(self, M, labels=None):
         self.M = M
@@ -24,7 +25,7 @@ class HAC:
             self.labels = M.index.tolist()
 
     def get_sims(self):
-        self.SIMS = pdist(normalize(self.M), metric=self.sim_metric)
+        self.SIMS = pdist(normalize(self.M, norm=self.norm), metric=self.sim_metric)
 
     def get_tree(self):
         self.TREE = sch.linkage(self.SIMS, method=self.tree_method)        
