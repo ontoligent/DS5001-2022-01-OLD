@@ -1,0 +1,41 @@
+digraph G {
+    
+    node [shape="plaintext", fontname="arial"]
+
+    A0 [label="A-"]
+    A1 [label="A"]
+    A2 [label="A+", shape="rect"]
+
+    B0 [label="B-", shape="rect"]
+    B1 [label="B"]
+    B2 [label="B+"]
+
+    B0_B1_B2_A0_A1_A2 [label="B-,B,B+,\nA-,A,A+"]
+    B0_B1_B2 [label="B-,B,B+"]
+    A0_A1_A2 [label="A-,A,A+"]
+
+    B1_B2 [label="B,B+"]
+    A0_A1 [label="A-,A"]
+
+
+    B0_B1_B2_A0_A1_A2 -> B0_B1_B2
+    B0_B1_B2_A0_A1_A2 -> A0_A1_A2
+
+    B0_B1_B2 -> B0
+    B0_B1_B2 -> B1_B2
+    B1_B2 -> B1 
+    B1_B2 -> B2 
+   
+    A0_A1_A2 -> A2
+    A0_A1_A2 -> A0_A1
+    A0_A1 -> A0
+    A0_A1 -> A1
+
+    node [style="invis"]
+    edge [style="invis"]
+    0 -> 1 -> 3 -> 4    
+    {rank=same; B0; B1; A; A2}
+ 
+
+
+}
