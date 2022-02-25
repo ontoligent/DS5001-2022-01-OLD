@@ -12,8 +12,17 @@ class HAC:
     w:int = 10
     label_size:int = 14
     orientation:str = 'left'
-    dist_metric:str = 'euclidean' # ‘braycurtis’, ‘canberra’, ‘chebyshev’, ‘cityblock’, ‘correlation’, ‘cosine’, ‘dice’, ‘euclidean’, ‘hamming’, ‘jaccard’, ‘jensenshannon’, ‘kulsinski’, ‘kulczynski1’, ‘mahalanobis’, ‘matching’, ‘minkowski’, ‘rogerstanimoto’, ‘russellrao’, ‘seuclidean’, ‘sokalmichener’, ‘sokalsneath’, ‘sqeuclidean’, ‘yule’
-    linkage_method:str = 'ward'
+
+    dist_metric:str = 'euclidean' 
+    # braycurtis, canberra, chebyshev, cityblock, correlation, 
+    # cosine, dice, euclidean, hamming, jaccard, jensenshannon, 
+    # kulsinski, kulczynski1, mahalanobis, matching, minkowski, 
+    # rogerstanimoto, russellrao, seuclidean, sokalmichener, 
+    # sokalsneath, sqeuclidean, yule
+
+    linkage_method:str = 'ward' 
+    # single, complete, average, weighted, centroid, median, ward
+
     norm_type:str = 'l2' # l1, l2, max
     color_thresh:float = None
     
