@@ -1,11 +1,31 @@
 import pandas as pd
 import numpy as np
+from scipy.linalg import norm, eigh
 
 def create_bow(CORPUS, bag, item_type='term_str'):
+    """
+    Create a bag-of-words representation from a table tokens.
+    Arguments:
+        CORPUS: a DataFrame with an OHCO index and ['term_str','max_pos'] in columns.
+        bag: a slice of the OHCO index identifying the bag level, e.g. ['book_id', 'chap_id'] for chapter bags.
+        item_type: the name of the column containing the normalized token string.
+    Returns:
+        A DataFrame with an the bag-level OHCO and ['n'] column for number of tokens in each bag.
+    """
     BOW = CORPUS.groupby(bag+[item_type])[item_type].count().to_frame('n')
     return BOW
 
-def get_tfidf(BOW, tf_method='max', df_method='standard', item_type='term_str'):
+def get_tfidf(BOW, tf_method='max', idf_method='standard'):
+    """
+    Get a TFIDF-weighted document-term matrix from a bag-of-words table.
+    Arguments:
+        BOW: A DataFrame produced by create_bow()
+        tf_method: The term frequency count method. Options: sum, max, log, raw, and bool. Defaults to max.
+        idf_method: The inversre document frequency count method. Options: standard, textbook, sklearn, sklearn_smooth. Defaults to standard.
+    Returns:
+        TFIDF: A DataFrame with an unnormalized, zero-filled document-term matrix of TFIDF weights.
+        DFIDF: A Series with a vocabulary as index and DFIDF as value.
+    """
             
     DTCM = BOW.n.unstack() # Create Doc-Term Count Matrix
     
@@ -25,13 +45,13 @@ def get_tfidf(BOW, tf_method='max', df_method='standard', item_type='term_str'):
     DF = DTCM.count() # Assumes NULLs 
     N_docs = len(DTCM)
     
-    if df_method == 'standard':
+    if idf_method == 'standard':
         IDF = np.log2(N_docs/DF) # This what the students were asked to use
-    elif df_method == 'textbook':
+    elif idf_method == 'textbook':
         IDF = np.log2(N_docs/(DF + 1))
-    elif df_method == 'sklearn':
+    elif idf_method == 'sklearn':
         IDF = np.log2(N_docs/DF) + 1
-    elif df_method == 'sklearn_smooth':
+    elif idf_method == 'sklearn_smooth':
         IDF = np.log2((N_docs + 1)/(DF + 1)) + 1
     else:
         raise ValueError(f"DF method {df_method} not found.")
@@ -48,6 +68,19 @@ def get_pca(TFIDF,
             norm_docs=True, 
             center_by_mean=True, 
             center_by_variance=False):
+
+    """
+    Get principal components and loadings from a TFIDF matrix.
+    Arguments:
+        k: The number of components to return. Defaults to 10.
+        norm_docs: Whether to apply L2 normalization or not. Defaults to True.
+        center_by_mean: Whether to center term vectors by mean. Defaults to True.
+        center_by_variance: Whether to center term vectors by standard deviation. Defaults to False.
+    Returns:
+        LOADINGS: A DataFrame of terms by principal components. 
+        DCM: A DataFrame of documents by principal components.
+        COMPINF: A DataFrame of information about each component.
+    """
     
     if TFIDF.isna().sum().sum():
         TFIDF = TFIDF.fillna(0)
@@ -89,5 +122,5 @@ def get_pca(TFIDF,
     COMPINF['eig_val'] = EIG_IDX.reset_index(drop=True).to_frame()
     COMPINF['exp_var'] = COMPINF.eig_val / COMPINF.eig_val.sum()
     
-    return COMPS, LOADINGS, DCM, COMPINF
+    return LOADINGS, DCM, COMPINF
     
