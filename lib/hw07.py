@@ -2,29 +2,29 @@ import pandas as pd
 import numpy as np
 from scipy.linalg import norm, eigh
 
-def create_bow(CORPUS, bag, item_type='term_str'):
+def create_bow(CORPUS:pd.DataFrame, bag:list, item_type:str='term_str'):
     """
     Create a bag-of-words representation from a table tokens.
     Arguments:
-        CORPUS: a DataFrame with an OHCO index and ['term_str','max_pos'] in columns.
-        bag: a slice of the OHCO index identifying the bag level, e.g. ['book_id', 'chap_id'] for chapter bags.
-        item_type: the name of the column containing the normalized token string.
+        CORPUS (pd.DataFrame): a DataFrame with an OHCO index and ``['term_str','max_pos']`` in columns.
+        bag (list): a slice of the OHCO index identifying the bag level, e.g. ``['book_id', 'chap_id']`` for chapter bags.
+        item_type (string): the name of the column containing the normalized token string.
     Returns:
-        A DataFrame with an the bag-level OHCO and ['n'] column for number of tokens in each bag.
+        A DataFrame with an the bag-level OHCO and ``['n']`` column for number of tokens in each bag.
     """
     BOW = CORPUS.groupby(bag+[item_type])[item_type].count().to_frame('n')
     return BOW
 
-def get_tfidf(BOW, tf_method='max', idf_method='standard'):
+def get_tfidf(BOW:pd.DataFrame, tf_method:str='max', idf_method:str='standard'):
     """
     Get a TFIDF-weighted document-term matrix from a bag-of-words table.
     Arguments:
-        BOW: A DataFrame produced by create_bow()
-        tf_method: The term frequency count method. Options: sum, max, log, raw, and bool. Defaults to max.
-        idf_method: The inversre document frequency count method. Options: standard, textbook, sklearn, sklearn_smooth. Defaults to standard.
+        BOW (pd.DataFrame): A DataFrame produced by ``create_bow()``
+        tf_method (string): The term frequency count method. Options: sum, max, log, raw, and bool. Defaults to max.
+        idf_method (strings): The inversre document frequency count method. Options: standard, textbook, sklearn, sklearn_smooth. Defaults to standard.
     Returns:
-        TFIDF: A DataFrame with an unnormalized, zero-filled document-term matrix of TFIDF weights.
-        DFIDF: A Series with a vocabulary as index and DFIDF as value.
+        TFIDF (pd.DataFrame): A DataFrame with an unnormalized, zero-filled document-term matrix of TFIDF weights.
+        DFIDF (pd.DataFrame): A Series with a vocabulary as index and DFIDF as value.
     """
             
     DTCM = BOW.n.unstack() # Create Doc-Term Count Matrix
@@ -64,22 +64,21 @@ def get_tfidf(BOW, tf_method='max', idf_method='standard'):
     return TFIDF, DFIDF
 
 def get_pca(TFIDF, 
-            k=10, 
-            norm_docs=True, 
-            center_by_mean=True, 
-            center_by_variance=False):
-
+            k:int=10, 
+            norm_docs:bool=True, 
+            center_by_mean:bool=True, 
+            center_by_variance:bool=False):
     """
     Get principal components and loadings from a TFIDF matrix.
     Arguments:
-        k: The number of components to return. Defaults to 10.
-        norm_docs: Whether to apply L2 normalization or not. Defaults to True.
-        center_by_mean: Whether to center term vectors by mean. Defaults to True.
-        center_by_variance: Whether to center term vectors by standard deviation. Defaults to False.
+        k (int): The number of components to return. Defaults to 10.
+        norm_docs (bool): Whether to apply L2 normalization or not. Defaults to True.
+        center_by_mean (bool): Whether to center term vectors by mean. Defaults to True.
+        center_by_variance (bool): Whether to center term vectors by standard deviation. Defaults to False.
     Returns:
-        LOADINGS: A DataFrame of terms by principal components. 
-        DCM: A DataFrame of documents by principal components.
-        COMPINF: A DataFrame of information about each component.
+        LOADINGS (pd.DataFrame): A DataFrame of terms by principal components. 
+        DCM (pd.DataFrame): A DataFrame of documents by principal components.
+        COMPINF (pd.DataFrame): A DataFrame of information about each component.
     """
     
     if TFIDF.isna().sum().sum():
