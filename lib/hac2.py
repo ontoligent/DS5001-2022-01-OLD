@@ -5,25 +5,32 @@ import matplotlib.pyplot as plt
 from pandas import DataFrame as df
 
 class HAC:
-    """This class takes an arbitrary vector space and represents it 
-    as a hierarhical agglomerative cluster tree. The number of observations
-    should be sufficiently small to allow being plotted."""
+    """
+    Takes an arbitrary vector space and represents it 
+    as a hierarhical agglomerative cluster tree. 
+    The number of observations should be sufficiently 
+    small to allow being plotted.
+
+    Attributes:
+        w (int): The width of the figure in inches.
+        label_size (int): The font size of the labels in points.
+        orientation (str): The orientation of the figure; 'top', 'bottom', 'left', 'right'. Defaults to 'left'.
+        dist_measure (str): The distance measure to use; braycurtis, canberra, chebyshev, cityblock, correlation, 
+            cosine, dice, euclidean, hamming, jaccard, jensenshannon, kulsinski, kulczynski1, mahalanobis, matching, 
+            minkowski, rogerstanimoto, russellrao, seuclidean, sokalmichener, sokalsneath, sqeuclidean, yule. 
+            Defaults to euclidean.
+        linkage_method (str): The linkage method to use; single, complete, average, weighted, centroid, median, ward
+            Defaults to ward.
+        norm_type (str): The vector normalization type; l1, l2, max. Defaults to l2.
+        color_thresh (float): The threshhold at which to apply coloring in the dendropgram. Defaults to None.
+    """
 
     w:int = 10
     label_size:int = 14
     orientation:str = 'left'
-
     dist_metric:str = 'euclidean' 
-    # braycurtis, canberra, chebyshev, cityblock, correlation, 
-    # cosine, dice, euclidean, hamming, jaccard, jensenshannon, 
-    # kulsinski, kulczynski1, mahalanobis, matching, minkowski, 
-    # rogerstanimoto, russellrao, seuclidean, sokalmichener, 
-    # sokalsneath, sqeuclidean, yule
-
     linkage_method:str = 'ward' 
-    # single, complete, average, weighted, centroid, median, ward
-
-    norm_type:str = 'l2' # l1, l2, max
+    norm_type:str = 'l2' 
     color_thresh:float = None
     
     def __init__(self, X, labels=None):
