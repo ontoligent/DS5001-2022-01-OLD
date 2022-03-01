@@ -69,7 +69,8 @@ def get_pca(TFIDF,
             center_by_mean:bool=True, 
             center_by_variance:bool=False):
     """
-    Get principal components and loadings from a TFIDF matrix.
+    Get principal components and loadings from a TFIDF matrix. Typically, this will be one with a
+    a reduced feature spacing, i.e. of the top ``n`` significant terms.
     Arguments:
         k (int): The number of components to return. Defaults to 10.
         norm_docs (bool): Whether to apply L2 normalization or not. Defaults to True.
