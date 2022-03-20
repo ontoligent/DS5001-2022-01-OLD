@@ -5,6 +5,7 @@ from sklearn.decomposition import LatentDirichletAllocation as LDA, NMF
 class TopicModel():            
 
     bow_count_col:str = 'n'
+    n_terms:int = 1000
     n_topics:int = 20
     n_top_terms:int = None
     engine_type = 'LDA' # Also NMF
@@ -86,4 +87,5 @@ class TopicModel():
         self.DOC['max_topic'] = self.THETA.idxmax(1)
         
     def plot_topics(self):
-        self.TOPIC.sort_values('theta_sum', ascending=True).plot.barh(y='theta_sum', x='label', figsize=(5, self.n_topics/2))
+        self.TOPIC.sort_values('theta_sum', ascending=True)\
+            .plot.barh(y='theta_sum', x='label', figsize=(5, self.n_topics/2))
