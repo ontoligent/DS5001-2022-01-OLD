@@ -28,7 +28,7 @@ class TopicModel():
         X = X.fillna(0)
         V['idf'] = np.log2(len(X)/V.df)
         V['dfidf'] = V.df * V.idf
-        SIGS = V.sort_values('dfidf', ascending=False).head(n_terms).index
+        SIGS = V.sort_values('dfidf', ascending=False).head(self.n_terms).index
         self.X = X[SIGS]
         self.V = V        
         
