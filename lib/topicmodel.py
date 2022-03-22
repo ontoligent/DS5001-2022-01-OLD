@@ -68,16 +68,25 @@ class TopicModel():
         if not self.n_top_terms:
             self.n_top_terms = round(self.TOPIC.h.mean())
 
-        self.TOPIC['top_terms'] = self.PHI.stack().to_frame('topic_weight')\
-            .groupby('topic_id')\
-            .apply(lambda x: 
-                x.sort_values('topic_weight', ascending =False)\
-                    .head(self.n_top_terms)\
-                    .reset_index()['term_str'])\
-            .apply(lambda x: ' '.join(x.replace(' ', '_')), 1)
+        # Compute relevant terms
+        self.get_relevant_terms(0)
         
-        self.TOPIC['label'] = self.TOPIC.apply(lambda x: f"{x.name}: {x.top_terms}", 1)
-                
+        # Get top terms
+        self.TOPIC['top_terms'] = self.PHI.apply(lambda x: ' '.join(x.sort_values(ascending=False).head(self.n_top_terms).index), 1)        
+        self.TOPIC['label'] = self.TOPIC.apply(lambda x: f"{x.name}: {x.top_terms_rel}", 1)
+        
+
+    def get_relevant_terms(self, 𝜆 = .5):
+        """
+        Compute relevance of topic terms as defined by Sievert and Shirley 2014.
+        C. Sievert and K. Shirley, “LDAvis: A Method for Visualizing and Interpreting Topics,” 
+        in Proceedings of the workshop on interactive language learning, visualization, and interfaces, 2014, pp. 63–70.
+        """
+        Ptw = self.PHI.apply(lambda x: x / x.sum(), 1) # L1 norm of PHI rows, i.e. p(w|t)
+        Pw = self.PHI.sum() / self.PHI.sum().sum() # Marginal probs of terms in PHI, i.e. p(w)
+        self.REL = 𝜆 * np.log2(Ptw) + (1-𝜆) * np.log2(Ptw / Pw)
+        self.TOPIC['top_terms_rel'] = self.REL.apply(lambda x: ' '.join(x.sort_values(ascending=False).head(self.n_top_terms).index), 1)
+
     def get_model_stats(self):
         self.entropy = self.TOPIC.h.sum()
         self.redundancy = 1 - self.entropy / np.log2(self.n_topics)
