@@ -1,53 +1,95 @@
+from ssl import ALERT_DESCRIPTION_BAD_CERTIFICATE_HASH_VALUE
 import pandas as pd
 import numpy as np
 from sklearn.decomposition import LatentDirichletAllocation as LDA, NMF
 
 class TopicModel():            
 
+    """
+    A class to convert a BOW table into a topic model consisting of THETA, PHI, and TOPIC tables.
+    Attributes:
+        bow_count_col (str): The name of the token count column in the BOW table. Defaults to 'n'.
+        n_term (int): The number of vocabalary terms to use in the topic model. Defaults to None.
+        n_topics (int): The number of topics to generate. Defaults to 20.
+        n_top_terms (int): The number of top terms to use to represent each topic. Will compute based on entropy if no value given. Defaults to None.
+        engine_type (str): The topic modeling engine to use. May be 'LDA' or 'NMF'. Defaults to 'LDA'.
+        alpha (float) = The document-topic prior, e.g. .1.  Defaults to None.
+        beta (float) = The topic-term prior, e.g. .01.  Defaults to None.
+        
+        # LDA Params
+        max_iter:int = 20
+        learning_offset:float = 50.
+        random_state:int = 0
+        
+        # NMF Params
+        nmf_init:str = 'nndsvd'
+        nmf_max_iter:int = 1000
+        nmf_random_state:int = 1
+
+        kw = {} # Extra parameters
+
+    """
+
+    # General
     bow_count_col:str = 'n'
-    n_terms:int = 1000
+    n_terms:int = None
     n_topics:int = 20
     n_top_terms:int = None
-    engine_type = 'LDA' # Also NMF
-
+    engine_type:str = 'LDA' # Also NMF
+    alpha:float = None # doc_topic_prior
+    beta:float = None  # topic_word_prior
+    
     # LDA Params
     max_iter:int = 20
     learning_offset:float = 50.
     random_state:int = 0
     
     # NMF Params
-    nmf_init = 'nndsvd'
-    nmf_max_iter = 1000
+    nmf_init:str = 'nndsvd'
+    nmf_max_iter:int = 1000
+    nmf_random_state:int = 1
+
+    kw = {} # Extra parameters
     
     def __init__(self, BOW:pd.DataFrame):
+        """
+        Initialize by passing a bag-of-words table with an OHCO index and 'n' feature of word counts.
+        """
         self.BOW = BOW
         
     def create_X(self):
         
-        X = self.BOW[self.bow_count_col].unstack()
-        V = X.count().to_frame('df')
-        X = X.fillna(0)
-        V['idf'] = np.log2(len(X)/V.df)
-        V['dfidf'] = V.df * V.idf
-        SIGS = V.sort_values('dfidf', ascending=False).head(self.n_terms).index
-        self.X = X[SIGS]
+        # Convert BOW to DTM (X)
+        X = self.BOW[self.bow_count_col].unstack(fill_value=0)
+
+        # Reduce feature space if asked
+        V = X[X > 0].sum().to_frame('df')
+        if self.n_terms:
+            V['idf'] = np.log2(len(X)/V.df)
+            V['dfidf'] = V.df * V.idf
+            SIGS = V.sort_values('dfidf', ascending=False).head(self.n_terms).index
+            self.X = X[SIGS]
+        else:
+            self.X = X
         self.V = V        
         
     def get_model(self):
         
         if self.engine_type == 'LDA':
             self.engine = LDA(n_components=self.n_topics, 
-                                  max_iter=self.max_iter, 
-                                  learning_offset=self.learning_offset, 
-                                  random_state=self.random_state)
+                                max_iter=self.max_iter, 
+                                doc_topic_prior=self.alpha,
+                                topic_word_prior=self.beta,
+                                learning_offset=self.learning_offset, 
+                                random_state=self.random_state,
+                                **self.kw)
 
         elif self.engine_type == 'NMF':
             self.engine = NMF(n_components=self.n_topics, 
-                                  max_iter=self.nmf_max_iter,
-                                  init=self.nmf_init, 
-                                  random_state=1, 
-                                  alpha=.1, 
-                                  l1_ratio=.5)
+                                max_iter=self.nmf_max_iter,
+                                init=self.nmf_init, 
+                                random_state=self.nmf_random_state, 
+                                **self.kw)
                 
         self.THETA = pd.DataFrame(self.engine.fit_transform(self.X.values), index=self.X.index)
         self.THETA.columns.name = 'topic_id'
