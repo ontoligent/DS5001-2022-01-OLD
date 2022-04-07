@@ -33,11 +33,11 @@ class W2V():
     def generate_model(self):
         print("Extracting vocabulary")
         self._extract_vocab()
-        print('Getting sentences')
+        print('Gathering sentences')
         self._get_sents()
-        print("Getting word vectors")
+        print("Learning word vectors")
         self._get_model()
-        print("Getting tSNE coordinates")
+        print("Generating tSNE coordinates")
         self._get_tsne_coords()
         print("Done", u'\u2713')
         
