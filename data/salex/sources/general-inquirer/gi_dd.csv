@@ -1,0 +1,183 @@
+category_id,src_id,sect_id,category_n,category_def,category_label
+Positiv,New,1,"1,915","words of positive outlook. (It does not contain words for yes, which has been made a separate category of 20 entries.)","Positiv [1]: words of positive outlook. (It does not contain words for yes, which has been ma"
+Negativ,New,1,"2,291",words of negative outlook (not including the separate category no in the sense of refusal).,Negativ [1]: words of negative outlook (not including the separate category no in the sense o
+Pstv,Harvard IV-4,2,1045,"positive words, an earlier version of Positiv.","Pstv [2]: positive words, an earlier version of Positiv."
+Affil,Harvard IV-4,2,557,a subset of words are also tagged for words indicating affiliation or supportiveness.,Affil [2]: a subset of words are also tagged for words indicating affiliation or supportive
+Ngtv,Harvard IV-4,2,1160,"negative words, an earlier version of Negativ.","Ngtv [2]: negative words, an earlier version of Negativ."
+Hostile,Harvard IV-4,2,833,a subset of words tagged for words indicating an attitude or concern with hostility or aggressiveness.,Hostile [2]: a subset of words tagged for words indicating an attitude or concern with hostil
+Strong,Harvard IV-4,2,1902,words implying strength.,Strong [2]: words implying strength.
+Power,Harvard IV-4,2,689,"A subset of words indicating a concern with power, control or authority.","Power [2]: A subset of words indicating a concern with power, control or authority."
+Weak,Harvard IV-4,2,755,words implying weakness.,Weak [2]: words implying weakness.
+Submit,Harvard IV-4,2,284,"A subset of words connoting submission to authority or power, dependence on others, vulnerability to others, or withdrawal.","Submit [2]: A subset of words connoting submission to authority or power, dependence on othe"
+Active,Harvard IV-4,2,2045,words implying an active orientation.,Active [2]: words implying an active orientation.
+Passive,Harvard IV-4,2,911,words indicating a passive orientation,Passive [2]: words indicating a passive orientation
+Pleasur,Harvard IV-4,3,168,"words indicating the enjoyment of a feeling, including words indicating confidence, interest and commitment.","Pleasur [3]: words indicating the enjoyment of a feeling, including words indicating confiden"
+Pain,Harvard IV-4,3,254,"words indicating suffering, lack of confidence, or commitment.","Pain [3]: words indicating suffering, lack of confidence, or commitment."
+Feel,Harvard IV-4,3,49,"words describing particular feelings, including gratitude, apathy, and optimism, not those of pain or pleasure.","Feel [3]: words describing particular feelings, including gratitude, apathy, and optimism,"
+Arousal,Harvard IV-4,3,166,"words indicating excitation, aside from pleasures or pains, but including arousal of affiliation and hostility.","Arousal [3]: words indicating excitation, aside from pleasures or pains, but including arousa"
+EMOT,Harvard IV-4,3,311,"words related to emotion that are used as a disambiguation category, but also available for general use.","EMOT [3]: words related to emotion that are used as a disambiguation category, but also av"
+Virtue,Harvard IV-4,3,719,"words indicating an assessment of moral approval or good fortune, especially from the perspective of middle-class society.","Virtue [3]: words indicating an assessment of moral approval or good fortune, especially fro"
+Vice,Harvard IV-4,3,685,words indicating an assessment of moral disapproval or misfortune.,Vice [3]: words indicating an assessment of moral disapproval or misfortune.
+Ovrst,Harvard IV-4,4,"""Overstated"",","696 words indicating emphasis in realms of speed, frequency, causality, inclusiveness, quantity or quasi-quantity, accuracy, validity, scope, size, clarity, exceptionality, intensity, likelihood, certainty and extremity.","Ovrst [4]: 696 words indicating emphasis in realms of speed, frequency, causality, inclusiv"
+Undrst,Harvard IV-4,4,"""Understated"",",319 words indicating de-emphasis and caution in these realms.,Undrst [4]: 319 words indicating de-emphasis and caution in these realms.
+Academ,Harvard IV-4,5,153,"words relating to academic, intellectual or educational matters, including the names of major fields of study.","Academ [5]: words relating to academic, intellectual or educational matters, including the n"
+Doctrin,Harvard IV-4,5,217,"words referring to organized systems of belief or knowledge, including those of applied knowledge, mystical beliefs, and arts that academics study.","Doctrin [5]: words referring to organized systems of belief or knowledge, including those of "
+Econ@,Harvard IV-4,5,510,"words of an economic, commercial, industrial, or business orientation, including roles, collectivities, acts, abstract ideas, and symbols, including references to money. Includes names of common commodities in business.","Econ@ [5]: words of an economic, commercial, industrial, or business orientation, including"
+Exch,Harvard IV-4,5,60,"words concerned with buying, selling and trading.","Exch [5]: words concerned with buying, selling and trading."
+ECON,Harvard IV-4,5,502,words (269 in common with Econ@) that is used by the General Inquirer in disambiguating.,ECON [5]: words (269 in common with Econ@) that is used by the General Inquirer in disambi
+Exprsv,Harvard IV-4,5,205,"words associated with the arts, sports, and self-expression. Note: Separate Sports (186 words) and Arts (138 words) categories have recently been created and will be added to the spreadsheet.","Exprsv [5]: words associated with the arts, sports, and self-expression. Note: Separate Spor"
+Legal,Harvard IV-4,5,192,"words relating to legal, judicial, or police matters.","Legal [5]: words relating to legal, judicial, or police matters."
+Milit,Harvard IV-4,5,88,words relating to military matters.,Milit [5]: words relating to military matters.
+Polit@,Harvard IV-4,5,263,"words having a clear political character, including political roles, collectivities, acts, ideas, ideologies, and symbols. Caution: There is also a POLIT broader category of 507 words that is used in disambiguation.","Polit@ [5]: words having a clear political character, including political roles, collectivit"
+POLIT,Harvard IV-4,5,507,words that is used in disambiguation.,POLIT [5]: words that is used in disambiguation.
+Relig,Harvard IV-4,5,103,"words pertaining to religious, metaphysical, supernatural or relevant philosophical matters.","Relig [5]: words pertaining to religious, metaphysical, supernatural or relevant philosophi"
+Role,Harvard IV-4,6,569,"words referring to identifiable and standardized individual human behavior patterns, as used by sociologists.",Role [6]: words referring to identifiable and standardized individual human behavior patte
+COLL,Harvard IV-4,6,191,words referring to all human collectivities (not animal). Used in disambiguation.,COLL [6]: words referring to all human collectivities (not animal). Used in disambiguation
+Work,Harvard IV-4,6,261,words for socially defined ways for doing work.,Work [6]: words for socially defined ways for doing work.
+Ritual,Harvard IV-4,6,134,words for non-work social rituals.,Ritual [6]: words for non-work social rituals.
+SocRel,Harvard IV-4,6,577,"words for socially-defined interpersonal processes (formerly called ""IntRel"", for interpersonal relations).","SocRel [6]: words for socially-defined interpersonal processes (formerly called ""IntRel"", fo"
+Race,Harvard IV-4,7,15,words (with important use of words senses) referring to racial or ethnic characteristics.,Race [7]: words (with important use of words senses) referring to racial or ethnic charact
+Kin@,Harvard IV-4,7,50,terms denoting kinship.,Kin@ [7]: terms denoting kinship.
+MALE,Harvard IV-4,7,56,words referring to men and social roles associated with men. (Also used as a marker in disambiguation.),MALE [7]: words referring to men and social roles associated with men. (Also used as a mar
+Female,Harvard IV-4,7,43,words referring to women and social roles associated with women.,Female [7]: words referring to women and social roles associated with women.
+Nonadlt,Harvard IV-4,7,25,words associated with infants through adolescents. ['NonAdlt' in original text.],Nonadlt [7]: words associated with infants through adolescents. ['NonAdlt' in original text.]
+HU,Harvard IV-4,7,795,"general references to humans, including roles","HU [7]: general references to humans, including roles"
+ANI,Harvard IV-4,7,72,"references to animals, fish, birds, and insects, including their collectivities.","ANI [7]: references to animals, fish, birds, and insects, including their collectivities."
+PLACE,Harvard IV-4,8,318,"words subdivided into Social, Region, Route, Aquatic, Land, Sky. ['Place' in original text.]","PLACE [8]: words subdivided into Social, Region, Route, Aquatic, Land, Sky. ['Place' in ori"
+Social,Harvard IV-4,8,111,words for created locations that typically provide for social interaction and occupy limited space),Social [8]: words for created locations that typically provide for social interaction and oc
+Region,Harvard IV-4,8,61,words,Region [8]: words
+Route,Harvard IV-4,8,23,words,Route [8]: words
+Aquatic,Harvard IV-4,8,20,words,Aquatic [8]: words
+Land,Harvard IV-4,8,63,"words for places occurring in nature, such as desert or beach)","Land [8]: words for places occurring in nature, such as desert or beach)"
+Sky,Harvard IV-4,8,34,"words for all aerial conditions, natural vapors and objects in outer space.","Sky [8]: words for all aerial conditions, natural vapors and objects in outer space."
+Object,Harvard IV-4,9,661,words subdivided into Tool and Food.,Object [9]: words subdivided into Tool and Food.
+Tool,Harvard IV-4,9,318,words,Tool [9]: words
+Food,Harvard IV-4,9,80,words,Food [9]: words
+Vehicle,Harvard IV-4,9,39,words,Vehicle [9]: words
+BldgPt,Harvard IV-4,9,46,"words for buildings, rooms in buildings, and other building parts","BldgPt [9]: words for buildings, rooms in buildings, and other building parts"
+ComnObj,Harvard IV-4,9,104,words for the tools of communication,ComnObj [9]: words for the tools of communication
+NatObj,Harvard IV-4,9,61,"words for natural objects including plants, minerals and other objects occurring in nature other than people or animals).","NatObj [9]: words for natural objects including plants, minerals and other objects occurring"
+BodyPt,Harvard IV-4,9,80,parts of the body,BodyPt [9]: parts of the body
+ComForm,Harvard IV-4,10,895,"words relating to the form, format or media of the communication transaction.","ComForm [10]: words relating to the form, format or media of the communication transaction."
+COM,Harvard IV-4,10,412,communications words used in disambiguation.,COM [10]: communications words used in disambiguation.
+Say,Harvard IV-4,10,4,words for say and tell.,Say [10]: words for say and tell.
+Need,Harvard IV-4,11,76,words related to the expression of need or intent.,Need [11]: words related to the expression of need or intent.
+Goal,Harvard IV-4,11,53,names of end-states towards which muscular or mental striving is directed.,Goal [11]: names of end-states towards which muscular or mental striving is directed.
+Try,Harvard IV-4,11,70,"words indicating activities taken to reach a goal, but not including words indicating that the goals have been achieved.","Try [11]: words indicating activities taken to reach a goal, but not including words indic"
+Means,Harvard IV-4,11,244,"words denoting objects, acts or methods utilized in attaining goals. Only 16 words overlap with Lasswell dictionary 77-word category MeansLw.","Means [11]: words denoting objects, acts or methods utilized in attaining goals. Only 16 wor"
+Persist,Harvard IV-4,11,64,"words indicating ""stick to it"" and endurance.","Persist [11]: words indicating ""stick to it"" and endurance."
+Complet,Harvard IV-4,11,81,"words indicating that goals have been achieved, apart from whether the action may continue. The termination of action is indicated by the category Finish.","Complet [11]: words indicating that goals have been achieved, apart from whether the action ma"
+Fail,Harvard IV-4,11,137,words indicating that goals have not been achieved.,Fail [11]: words indicating that goals have not been achieved.
+NatrPro,Harvard IV-4,12,217,"words for processes found in nature, birth to death.","NatrPro [12]: words for processes found in nature, birth to death."
+Begin,Harvard IV-4,12,56,words,Begin [12]: words
+Vary,Harvard IV-4,12,98,"words indicating change without connotation of increase, decrease, beginning or ending","Vary [12]: words indicating change without connotation of increase, decrease, beginning or "
+Increas,Harvard IV-4,12,111,words for increase)),Increas [12]: words for increase))
+Decreas,Harvard IV-4,12,82,words for decrease,Decreas [12]: words for decrease
+Finish,Harvard IV-4,12,87,words,Finish [12]: words
+Stay,Harvard IV-4,12,125,words,Stay [12]: words
+Rise,Harvard IV-4,12,25,words,Rise [12]: words
+Exert,Harvard IV-4,12,194,words,Exert [12]: words
+Fetch,Harvard IV-4,12,79,"words, includes carrying","Fetch [12]: words, includes carrying"
+Travel,Harvard IV-4,12,209,words for all physical movement and travel from one place to another in a horizontal plane,Travel [12]: words for all physical movement and travel from one place to another in a horizo
+Fall,Harvard IV-4,12,42,words,Fall [12]: words
+Think,Harvard IV-4,13,81,words referring to the presence or absence of rational thought processes.,Think [13]: words referring to the presence or absence of rational thought processes.
+Know,Harvard IV-4,13,348,"words indicating awareness or unawareness, certainty or uncertainty, similarity or difference, generality or specificity, importance or unimportance, presence or absence, as well as components of mental classes, concepts or ideas.","Know [13]: words indicating awareness or unawareness, certainty or uncertainty, similarity "
+Causal,Harvard IV-4,13,112,"words denoting presumption that occurrence of one phenomenon is necessarily preceded, accompanied or followed by the occurrence of another.",Causal [13]: words denoting presumption that occurrence of one phenomenon is necessarily prec
+Ought,Harvard IV-4,13,26,words indicating moral imperative.,Ought [13]: words indicating moral imperative.
+Perceiv,Harvard IV-4,13,192,words referring to the perceptual process of recognizing or identifying something by means of the senses.,Perceiv [13]: words referring to the perceptual process of recognizing or identifying somethin
+Compare,Harvard IV-4,13,21,words of comparison.,Compare [13]: words of comparison.
+Eval@,Harvard IV-4,13,205,"words which imply judgment and evaluation, whether positive or negative, including means-ends judgments.","Eval@ [13]: words which imply judgment and evaluation, whether positive or negative, includi"
+EVAL,Harvard IV-4,13,314,A broader category of different evaluative words that is used in disambiguation.,EVAL [13]: A broader category of different evaluative words that is used in disambiguation.
+Solve,Harvard IV-4,13,189,words (mostly verbs) referring to the mental processes associated with problem solving.,Solve [13]: words (mostly verbs) referring to the mental processes associated with problem s
+Abs@,Harvard IV-4,13,185,words reflecting tendency to use abstract vocabulary. There is also an,Abs@ [13]: words reflecting tendency to use abstract vocabulary. There is also an
+ABS,Harvard IV-4,13,276,words used as a marker.,ABS [13]: words used as a marker.
+Quality,Harvard IV-4,13,344,words indicating qualities or degrees of qualities which can be detected or measured by the human senses. Virtues and vices are separate.,Quality [13]: words indicating qualities or degrees of qualities which can be detected or meas
+Quan,Harvard IV-4,13,314,"words indicating the assessment of quantity, including the use of numbers. Numbers are also identified by the NUMB, ORD, and CARD.","Quan [13]: words indicating the assessment of quantity, including the use of numbers. Numbe"
+NUMB,Harvard IV-4,13,51,words which in turn divides into ORD and CARD.,NUMB [13]: words which in turn divides into ORD and CARD.
+ORD,Harvard IV-4,13,15,ordinal words.,ORD [13]: ordinal words.
+CARD,Harvard IV-4,13,36,cardinal words.,CARD [13]: cardinal words.
+FREQ,Harvard IV-4,13,46,"words indicating an assessment of frequency or pattern of recurrences, as well as words indicating an assessment of nonoccurrence or low frequency. (Also used in disambiguation)","FREQ [13]: words indicating an assessment of frequency or pattern of recurrences, as well a"
+DIST,Harvard IV-4,13,19,words referring to distance and its measures. (Used in disambiguation),DIST [13]: words referring to distance and its measures. (Used in disambiguation)
+Time@,Harvard IV-4,13,273,"words indicating a time consciousness, including when events take place and time taken in an action. Includes velocity words as well.","Time@ [13]: words indicating a time consciousness, including when events take place and time"
+TIME,Harvard IV-4,13,75,A more restrictive category used as a marker for disambiguation.,TIME [13]: A more restrictive category used as a marker for disambiguation.
+Space,Harvard IV-4,13,302,words indicating a consciousness of location in space and spatial relationships.,Space [13]: words indicating a consciousness of location in space and spatial relationships.
+POS,Harvard IV-4,13,35,words for position. A pecialized marker category for disambiguation.,POS [13]: words for position. A pecialized marker category for disambiguation.
+DIM,Harvard IV-4,13,49,words for dimension. A pecialized marker category for disambiguation.,DIM [13]: words for dimension. A pecialized marker category for disambiguation.
+Rel,Harvard IV-4,13,136,"words indicating a consciousness of abstract relationships between people, places, objects and ideas, apart from relations in space and time.","Rel [13]: words indicating a consciousness of abstract relationships between people, place"
+COLOR,Harvard IV-4,13,21,"words of color, used in disambiguation.","COLOR [13]: words of color, used in disambiguation."
+Self,Harvard IV-4,14,7,pronouns referring to the singular self,Self [14]: pronouns referring to the singular self
+Our,Harvard IV-4,14,6,"pronouns referring to the inclusive self (""we"", etc.)","Our [14]: pronouns referring to the inclusive self (""we"", etc.)"
+You,Harvard IV-4,14,9,pronouns indicating another person is being addressed directly.,You [14]: pronouns indicating another person is being addressed directly.
+Name,Harvard IV-4,14,86,"names identified in the Harvard IV dictionary. More names are recognized by the Lasswell dictionary, as in the category Nation.",Name [14]: names identified in the Harvard IV dictionary. More names are recognized by the 
+Yes,Harvard IV-4,15,20,"words directly indicating agreement, including word senses ""of course"", ""to say the least"", ""all right"".","Yes [15]: words directly indicating agreement, including word senses ""of course"", ""to say "
+No,Harvard IV-4,15,7,"words directly indicating disagreement, with the word ""no"" itself disambiguated to separately identify absence or negation.","No [15]: words directly indicating disagreement, with the word ""no"" itself disambiguated "
+Negate,Harvard IV-4,15,217,"words that refer to reversal or negation, including about 20 ""dis"" words, 40 ""in"" words, and 100 ""un"" words, as well as several senses of the word ""no"" itself; generally signals a downside view.","Negate [15]: words that refer to reversal or negation, including about 20 ""dis"" words, 40 ""in"
+Intrj,Harvard IV-4,15,42,"words and includes exclamations as well as casual and slang references, words categorized ""yes"" and ""no"" such as ""amen"" or ""nope"", as well as other words like ""damn"" and ""farewell"".","Intrj [15]: words and includes exclamations as well as casual and slang references, words ca"
+IAV,Social Cognition,16,1947,"verbs giving an interpretative explanation of an action, such as ""encourage, mislead, flatter"".","IAV [16]: verbs giving an interpretative explanation of an action, such as ""encourage, mis"
+DAV,Social Cognition,16,540,"straight descriptive verbs of an action or feature of an action, such as ""run, walk, write, read"".","DAV [16]: straight descriptive verbs of an action or feature of an action, such as ""run, w"
+SV,Social Cognition,16,102,"state verbs describing mental or emotional states. usually detached from specific observable events, such as ""love, trust, abhor"".",SV [16]: state verbs describing mental or emotional states. usually detached from specifi
+IPadj,Social Cognition,17,117,"adjectives referring to relations between people, such as ""unkind, aloof, supportive"".","IPadj [17]: adjectives referring to relations between people, such as ""unkind, aloof, suppor"
+IndAdj,Social Cognition,17,637,"adjectives describing people apart from their relations to one another, such as ""thrifty, restless""","IndAdj [17]: adjectives describing people apart from their relations to one another, such as "
+PowGain,Lasswell,18,65,Power Gain words about power increasing,PowGain [18]: Power Gain words about power increasing
+PowLoss,Lasswell,18,109,Power Loss words of power decreasing.,PowLoss [18]: Power Loss words of power decreasing.
+PowEnds,Lasswell,18,30,Power Ends words about the goals of the power process.,PowEnds [18]: Power Ends words about the goals of the power process.
+PowAren,Lasswell,18,53,Power Arenas words referring to political places and environments except nation-states.,PowAren [18]: Power Arenas words referring to political places and environments except nation-
+PowCon,Lasswell,18,228,Power conflict words for ways of conflicting.,PowCon [18]: Power conflict words for ways of conflicting.
+PowCoop,Lasswell,18,118,Power cooperation words for ways of cooperating,PowCoop [18]: Power cooperation words for ways of cooperating
+PowAuPt,Lasswell,18,134,Power authoritative participants words for individual and collective actors in power process,PowAuPt [18]: Power authoritative participants words for individual and collective actors in p
+PowPt,Lasswell,18,81,Power ordinary participants words for non-authoritative actors (such as followers) in the power process.,PowPt [18]: Power ordinary participants words for non-authoritative actors (such as follower
+PowDoct,Lasswell,18,42,Power doctrine words for recognized ideas about power relations and practices.,PowDoct [18]: Power doctrine words for recognized ideas about power relations and practices.
+PowAuth,Lasswell,18,79,Authoritative power words concerned with a tools or forms of invoking formal power.,PowAuth [18]: Authoritative power words concerned with a tools or forms of invoking formal pow
+PowOth,Lasswell,18,332,Residual category of power words not in other subcategories.,PowOth [18]: Residual category of power words not in other subcategories.
+PowTot,Lasswell,18,1266,words for the whole domain,PowTot [18]: words for the whole domain
+RcEthic,Lasswell,19,151,Ethics words of values concerning the social order.,RcEthic [19]: Ethics words of values concerning the social order.
+RcRelig,Lasswell,19,83,"Religion words that invoke transcendental, mystical or supernatural grounds for rectitude.","RcRelig [19]: Religion words that invoke transcendental, mystical or supernatural grounds for "
+RcGain,Lasswell,19,30,Rectitude gain words such as worship and forgiveness.,RcGain [19]: Rectitude gain words such as worship and forgiveness.
+RcLoss,Lasswell,19,12,Rectitude loss words such as sin and denounce.,RcLoss [19]: Rectitude loss words such as sin and denounce.
+RcEnds,Lasswell,19,33,"Rectitude ends words including heaven and the high-frequency word ""ought"".","RcEnds [19]: Rectitude ends words including heaven and the high-frequency word ""ought""."
+RcTot,Lasswell,19,310,Rectitude total words for the whole domain.,RcTot [19]: Rectitude total words for the whole domain.
+RspGain,Lasswell,20,26,"words for the garnering of respect, such as congratulations","RspGain [20]: words for the garnering of respect, such as congratulations"
+RspLoss,Lasswell,20,38,"words for the losing of respect, such as shame.","RspLoss [20]: words for the losing of respect, such as shame."
+RspOth,Lasswell,20,182,words regarding respect that are neither gain nor loss,RspOth [20]: words regarding respect that are neither gain nor loss
+RspTot,Lasswell,20,245,words in the domain.,RspTot [20]: words in the domain.
+AffGain,Lasswell,21,35,words for reaping affect.,AffGain [21]: words for reaping affect.
+AffLoss,Lasswell,21,11,words for affect loss and indifference,AffLoss [21]: words for affect loss and indifference
+AffPt,Lasswell,21,55,Affect participant words for friends and family.,AffPt [21]: Affect participant words for friends and family.
+AffOth,Lasswell,21,96,affect words not in other categories,AffOth [21]: affect words not in other categories
+AffTot,Lasswell,21,196,words in the affect domain,AffTot [21]: words in the affect domain
+WltPt,Lasswell,22,52,Wealth participant words for various roles in business and commerce.,WltPt [22]: Wealth participant words for various roles in business and commerce.
+WltTran,Lasswell,22,53,"Wealth transaction words for pursuit of wealth, such as buying and selling.","WltTran [22]: Wealth transaction words for pursuit of wealth, such as buying and selling."
+WltOth,Lasswell,22,271,"wealth-related words not in the above, including economic domains and commodities.","WltOth [22]: wealth-related words not in the above, including economic domains and commoditie"
+WltTot,Lasswell,22,378,words in wealth domain.,WltTot [22]: words in wealth domain.
+WlbGain,Lasswell,23,37,various words related to a gain in well being.,WlbGain [23]: various words related to a gain in well being.
+WlbLoss,Lasswell,23,60,"words related to a loss in a state of well being, including being upset.","WlbLoss [23]: words related to a loss in a state of well being, including being upset."
+WlbPhys,Lasswell,23,226,"words connoting the physical aspects of well being, including its absence.","WlbPhys [23]: words connoting the physical aspects of well being, including its absence."
+WlbPsyc,Lasswell,23,139,"words connoting the psychological aspects of well being, including its absence.","WlbPsyc [23]: words connoting the psychological aspects of well being, including its absence."
+WlbPt,Lasswell,23,27,"roles that evoke a concern for well-being, including infants, doctors, and vacationers.","WlbPt [23]: roles that evoke a concern for well-being, including infants, doctors, and vacat"
+WlbTot,Lasswell,23,487,words in well-being domain.,WlbTot [23]: words in well-being domain.
+EnlGain,Lasswell,24,146,"Enlightenment gain words likely to reflect a gain in enlightenment through thought, education, etc.",EnlGain [24]: Enlightenment gain words likely to reflect a gain in enlightenment through thoug
+EnlLoss,Lasswell,24,27,"Enlightenment loss words reflecting misunderstanding, being misguided, or oversimplified.","EnlLoss [24]: Enlightenment loss words reflecting misunderstanding, being misguided, or oversi"
+EnlEnds,Lasswell,24,18,"Enlightenment ends words ""denoting pursuit of intrinsic enlightenment ideas.""","EnlEnds [24]: Enlightenment ends words ""denoting pursuit of intrinsic enlightenment ideas."""
+EnlPt,Lasswell,24,61,Enlightenment participant words referring to roles in the secular enlightenment sphere.,EnlPt [24]: Enlightenment participant words referring to roles in the secular enlightenment 
+EnlOth,Lasswell,24,585,other enlightenment words,EnlOth [24]: other enlightenment words
+EnlTot,Lasswell,24,835,words about Enlightenment total,EnlTot [24]: words about Enlightenment total
+SklAsth,Lasswell,25,35,Skill aesthetic words mostly of the arts,SklAsth [25]: Skill aesthetic words mostly of the arts
+SklPt,Lasswell,25,64,Skill participant words mainly about trades and professions.,SklPt [25]: Skill participant words mainly about trades and professions.
+SklOth,Lasswell,25,158,other skill-related words,SklOth [25]: other skill-related words
+SklTot,Lasswell,25,257,skill words in all.,SklTot [25]: skill words in all.
+TrnGain,Lasswell,26,129,Transaction gain general words of accomplishment,TrnGain [26]: Transaction gain general words of accomplishment
+TrnLoss,Lasswell,26,113,"Transaction loss general words of not accomplishing, but having setbacks instead.","TrnLoss [26]: Transaction loss general words of not accomplishing, but having setbacks instead"
+TranLw,Lasswell,26,334,"words of transaction or exchange in a broad sense, but not necessarily of gain or loss.","TranLw [26]: words of transaction or exchange in a broad sense, but not necessarily of gain o"
+MeansLw,Lasswell,26,78,The Lasswell Means category general words referring to means and utility or lack of same. Overlaps little with Means category.,MeansLw [26]: The Lasswell Means category general words referring to means and utility or lack
+EndsLw,Lasswell,26,270,words of desired or undesired ends or goals.,EndsLw [26]: words of desired or undesired ends or goals.
+ArenaLw,Lasswell,26,34,"words for settings, other than power related arenas in PowAren.","ArenaLw [26]: words for settings, other than power related arenas in PowAren."
+PtLw,Lasswell,26,68,actors not otherwise defined by the dictionary.,PtLw [26]: actors not otherwise defined by the dictionary.
+Nation,Lasswell,26,169,"nations, which needs updating.","Nation [26]: nations, which needs updating."
+Anomie,Lasswell,26,30,"words that usually show ""a negation of value preference"", nihilism, disappointment and futility.","Anomie [26]: words that usually show ""a negation of value preference"", nihilism, disappointme"
+NegAff,Lasswell,26,193,"words of negative affect ""denoting negative feelings and emotional rejection.","NegAff [26]: words of negative affect ""denoting negative feelings and emotional rejection."
+PosAff,Lasswell,26,126,"words of positive affect ""denoting positive feelings, acceptance, appreciation and emotional support.""","PosAff [26]: words of positive affect ""denoting positive feelings, acceptance, appreciation a"
+SureLw,Lasswell,26,175,"words indicating ""a feeling of sureness, certainty and firmness.""","SureLw [26]: words indicating ""a feeling of sureness, certainty and firmness."""
+If,Lasswell,26,132,"words ""denoting feelings of uncertainty, doubt and vagueness.""","If [26]: words ""denoting feelings of uncertainty, doubt and vagueness."""
+NotLw,Lasswell,26,25,"words ""that show the denial of one sort or another. ""","NotLw [26]: words ""that show the denial of one sort or another. """
+TimeSpc,Lasswell,26,428,"words, ""a general space-time category""","TimeSpc [26]: words, ""a general space-time category"""
+FormLw,Lasswell,26,368,"words referring to formats, standards, tools and conventions of communication. almost entirely a subset of the 895 words in ConForm category","FormLw [26]: words referring to formats, standards, tools and conventions of communication. a"
