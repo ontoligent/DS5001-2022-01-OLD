@@ -1,0 +1,39 @@
+book_id,author_id,title,corpus
+secretadversary,christie,SECRETADVERSARY,novels
+styles,christie,STYLES,novels
+moonstone,collins,MOONSTONE,novels
+adventures,doyle,ADVENTURES,novels
+baskervilles,doyle,BASKERVILLES,novels
+scarlet,doyle,SCARLET,novels
+signoffour,doyle,SIGNOFFOUR,novels
+marieroget,poe,MARIEROGET,novels
+ruemorgue,poe,RUEMORGUE,novels
+northangerabbey,austen,NORTHANGERABBEY,novels
+christmascarole,dickens,CHRISTMASCAROLE,novels
+monk,lewis,MONK,novels
+pitandpendulum,poe,PITANDPENDULUM,novels
+reddeath,poe,REDDEATH,novels
+usher,poe,USHER,novels
+udolpho,radcliffe,UDOLPHO,novels
+oldenglishbaron,reeve,OLDENGLISHBARON,novels
+frankenstein,shelley,FRANKENSTEIN,novels
+dracula,stoker,DRACULA,novels
+castleofotranto,walpole,CASTLEOFOTRANTO,novels
+105,austen,PERSUASION,austen-melville
+121,austen,NORTHANGER ABBEY,austen-melville
+141,austen,MANSFIELD PARK,austen-melville
+158,austen,EMMA,austen-melville
+161,austen,SENSE AND SENSIBILIT,austen-melville
+946,austen,LADY SUSAN,austen-melville
+1212,austen,LOVE AND FREINDSHIP ,austen-melville
+1342,austen,PRIDE AND PREJUDICE,austen-melville
+1900,melville,TYPEE A ROMANCE OF T,austen-melville
+2701,melville,MOBY DICK OR THE WHA,austen-melville
+4045,melville,OMOO ADVENTURES IN T,austen-melville
+8118,melville,REDBURN HIS FIRST VO,austen-melville
+10712,melville,WHITE JACKET OR THE ,austen-melville
+13720,melville,MARDI AND A VOYAGE T,austen-melville
+13721,melville,MARDI AND A VOYAGE T,austen-melville
+15422,melville,ISRAEL POTTER HIS FI,austen-melville
+21816,melville,THE CONFIDENCE MAN H,austen-melville
+34970,melville,PIERRE OR THE AMBIGU,austen-melville
